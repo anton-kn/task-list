@@ -11,7 +11,6 @@ class Task
     private function connectDataBase($sql){
         $connect = new ConnectDB();
         /* Подготавливаем запрос */
-//        $stmt = $connect->getConnect()->prepare($sql);
         $result = $connect->getConnect()->query($sql);
         $connect->closeConnect();
         return $result;
@@ -24,6 +23,7 @@ class Task
         $userId = User::findUser('id', $nameLogin);
         /*Статус задачи */
         $status = false;
+
         $sql = "INSERT INTO tasks (user_id, description, status) VALUES ('".(int) $userId."', '".$description."', '"
             .(int) $status."')";
         /* Подключаемся к БД */
@@ -36,6 +36,7 @@ class Task
         $userId = User::findUser('id', $nameLogin);
         $sql = "SELECT * FROM tasks WHERE user_id = $userId";
         $result = self::connectDataBase($sql);
+        /* Проверяем наличие задач у пользователя, что не выдавать ошибки */
         if($result == false){
             return self::connectDataBase($sql);
         }else {

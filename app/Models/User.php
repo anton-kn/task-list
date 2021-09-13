@@ -11,8 +11,12 @@ class User
      */
     public static function insertUser($login, $password)
     {
-        $sql = "INSERT INTO users (login, password) VALUES ('".$login."', '".$password."')";
         $connect = new ConnectDB();
+        /* Экранируем данные */
+        $loginReal = $connect->getConnect()->real_escape_string($login);
+        $passwordReal = $connect->getConnect()->real_escape_string($password);
+        $sql = "INSERT INTO users (login, password) VALUES ('$loginReal', '$passwordReal')";
+
         $result = $connect->getConnect()->query($sql);
         $connect->closeConnect();
         return $result;
@@ -22,8 +26,11 @@ class User
      */
     public static function findUser($column, $param)
     {
-        $sql = "SELECT $column FROM users WHERE login ='$param'";
         $connect = new ConnectDB();
+        /* Экранируем данные */
+        $paramReal = $connect->getConnect()->real_escape_string($param);
+        $sql = "SELECT $column FROM users WHERE login ='$paramReal'";
+
         $result = $connect->getConnect()->query($sql)->fetch_all()[0];
         $connect->closeConnect();
         return array_shift($result);

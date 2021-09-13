@@ -12,7 +12,7 @@ class ConnectDB
      */
     public function getConnect()
     {
-        return new mysqli($this->servername, $this->username, $this->password, $this->database);;
+        return new mysqli($this->servername, $this->username, $this->password, $this->database);
     }
 
     /*

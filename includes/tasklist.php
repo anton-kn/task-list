@@ -12,7 +12,7 @@ if (isset($session)): ?>
                 <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
                     <button class="my-2 p-2 bg-green-200 hover:bg-green-300 rounded-lg" name="delete-all">Удалить
                         все</button>
-                    <button class="my-2 p-2 bg-green-200 hover:bg-green-300 rounded-lg" name="ready-all">Отметит
+                    <button class="my-2 p-2 bg-green-200 hover:bg-green-300 rounded-lg" name="ready-all">Отметить
                         все</button>
                 </form>
             </div>
