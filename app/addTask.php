@@ -19,6 +19,7 @@ if(isset($data['add-task'])){
     /*Добавляем статью */
     if(($data['description']) == ''){
         $errors[] = "Напишите задание";
+        $content = Task::showTaskAll($login);
     }
     if(empty($errors)){
         Task::addTask($login, $data['description']);
