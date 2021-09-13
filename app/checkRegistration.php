@@ -84,7 +84,8 @@ if (isset($data['signup'])) {
         // хешируем пароль
         $passwordHash = password_hash($data['password'], PASSWORD_DEFAULT);
         $user = User::insertUser($data['login'], $passwordHash);
-        $log[] = 'Вы зарегистрированы. Можно <a class="underline" href ="/login.php">авторизоваться</a>';
+        $errors[] = "Вы успешно регистрированы. Прошу авторизоваться!";
+        $state = false; /* переводим в авторизацию */
     }
 
 }

@@ -18,7 +18,6 @@ include_once __DIR__ . "/app/checkRegistration.php";
             <?php else: ?>
                 <input class="mx-auto m-4 p-3 rounded-lg block" type="password" name="password_2" placeholder="Повторите пароль">
                 <button class="p-3 bg-green-400 rounded-lg" name="signup">Зарегистрировать</button>
-                <p class="text-green-500"><?php if(!empty($log)){ echo array_shift($log); }?></p>
             <?php endif; ?>
             </form>
         </div>

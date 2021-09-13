@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2d73c469-407e-40cf-bde7-c6df588b1711" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/checkRegistration.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Task.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/checkLogin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkLogin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/ConnectDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/ConnectDB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/tasklist.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/tasklist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkRegistration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/userprofile.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/userprofile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/registration.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1631434543369</updated>
-      <workItem from="1631434553132" duration="53898000" />
+      <workItem from="1631434553132" duration="54428000" />
     </task>
     <servers />
   </component>
