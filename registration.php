@@ -24,7 +24,8 @@ $state = $_SESSION['state'];
             <form action="/registration.php" method="post">
                 <?php if($state == false): ?>
                 <input class="mx-auto m-4 p-3 rounded-lg block" type="text" name="login" placeholder="Введите login">
-                <input class="mx-auto m-4 p-3 rounded-lg block" type="password" name="password" placeholder="Введите пароль">
+                <input class="mx-auto m-4 p-3 rounded-lg block" type="password" name="password"
+                       placeholder="Введите пароль">
                 <button class="p-3 bg-green-400 rounded-lg" name="do_login">Вход</button>
             <?php else: ?>
                 <input class="mx-auto m-4 p-3 rounded-lg block" type="text" name="login_sup"
