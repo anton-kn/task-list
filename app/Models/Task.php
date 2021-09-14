@@ -20,11 +20,11 @@ class Task
     public static function addTask($nameLogin, $description)
     {
         /* Получаем id user */
-        $userId = User::findUser('id', $nameLogin);
+        $userId = User::findUser($nameLogin);
         /*Статус задачи */
         $status = false;
 
-        $sql = "INSERT INTO tasks (user_id, description, status) VALUES ('".(int) $userId."', '".$description."', '"
+        $sql = "INSERT INTO tasks (user_id, description, status) VALUES ('".(int) $userId['id']."', '".$description."', '"
             .(int) $status."')";
         /* Подключаемся к БД */
         return self::connectDataBase($sql);
@@ -33,8 +33,9 @@ class Task
     public static function showTaskAll($nameLogin)
     {
         /* Получаем id user */
-        $userId = User::findUser('id', $nameLogin);
-        $sql = "SELECT * FROM tasks WHERE user_id = $userId";
+        $userId = User::findUser($nameLogin);
+        $id = $userId['id'];
+        $sql = "SELECT * FROM tasks WHERE user_id = $id";
         $result = self::connectDataBase($sql);
         /* Проверяем наличие задач у пользователя, что не выдавать ошибки */
         if($result == false){
@@ -46,15 +47,17 @@ class Task
     /* Удаляем все данные с таблицы tasks */
     public static function deleteAll($nameLogin)
     {
-        $userId = User::findUser('id', $nameLogin);
-        $sql = "DELETE FROM tasks WHERE user_id = $userId";
+        $userId = User::findUser($nameLogin);
+        $id = $userId['id'];
+        $sql = "DELETE FROM tasks WHERE user_id = $id";
         return self::connectDataBase($sql);
     }
 
     public static function deleteTaskOne($nameLogin, $valueStatus)
     {
-        $userId = User::findUser('id', $nameLogin);
-        $sql = "DELETE FROM tasks WHERE user_id = $userId AND id = $valueStatus";
+        $userId = User::findUser($nameLogin);
+        $id = $userId['id'];
+        $sql = "DELETE FROM tasks WHERE user_id = $id AND id = $valueStatus";
         return self::connectDataBase($sql);
     }
 
@@ -62,8 +65,9 @@ class Task
     /* Подтвержаем статус для всех задач - Выполнено */
     public static function statusConfirmAll($nameLogin)
     {
-        $userId = User::findUser('id', $nameLogin);
-        $sql = "UPDATE tasks SET status = true WHERE user_id = $userId";
+        $userId = User::findUser($nameLogin);
+        $id = $userId['id'];
+        $sql = "UPDATE tasks SET status = true WHERE user_id = $id";
         return self::connectDataBase($sql);
     }
 
@@ -71,7 +75,8 @@ class Task
     public static function statusConfirmOne($nameLogin, $valueStatus)
     {
         $var = (int) $valueStatus;
-        $userId = User::findUser('id', $nameLogin);
+        $userId = User::findUser($nameLogin);
+        $id = $userId['id'];
         $sql_1 = "SELECT status FROM tasks WHERE id = $var";
         $result = self::connectDataBase($sql_1);
         if($result == false){
@@ -80,9 +85,9 @@ class Task
             $status = self::connectDataBase($sql_1)->fetch_all();
             /* $status[0][0] - значение status из таблицы tasks */
             if ($status[0][0] == true){
-                $sql_2 = "UPDATE tasks SET status = false WHERE user_id = $userId AND id = $valueStatus";
+                $sql_2 = "UPDATE tasks SET status = false WHERE user_id = $id AND id = $valueStatus";
             }else{
-                $sql_2 = "UPDATE tasks SET status = true WHERE user_id = $userId AND id = $valueStatus";
+                $sql_2 = "UPDATE tasks SET status = true WHERE user_id = $id AND id = $valueStatus";
             }
             return self::connectDataBase($sql_2);
         }

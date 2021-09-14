@@ -2,11 +2,6 @@
 session_start();
 $session = $_SESSION['user'];
 $title = "Task list";
-/*
- * При переходе на главную страницу сбрасываем S_SESSION['status'],
- * чтобы при повторном переходе появлялась форма авторизации
- */
-include_once __DIR__ . "/includes/resetState.php";
 ?>
 
 <?php include_once __DIR__ . "/includes/header.php"; ?>

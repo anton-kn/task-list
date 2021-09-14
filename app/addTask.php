@@ -14,14 +14,15 @@ if(empty($data)){
 *  Это блок подключается после авторизациии,
 *  т.е в глобальном массиве $_SESSION логи пользователя
 */
+
+/*Добавляем задачу */
 if(isset($data['add-task'])){
     $errors = [];
     /*Добавляем статью */
-    if(($data['description']) == ''){
+    if(empty($data['description'])){
         $errors[] = "Напишите задание";
         $content = Task::showTaskAll($login);
-    }
-    if(empty($errors)){
+    }else{
         Task::addTask($login, $data['description']);
         $content = Task::showTaskAll($login);
     }
